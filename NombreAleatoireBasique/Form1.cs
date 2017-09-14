@@ -25,6 +25,11 @@ namespace NombreAleatoireBasique
             {
                 if (int.TryParse(textBox2.Text, out int result2))
                 {
+                    if(result2 <= result)
+                    {                    
+                        MessageBox.Show("Le nombre minimum doit être inférieur au nombre maximum.");
+                        return;
+                    }
                     label3.Text = nombrealeatoire.Next(result, result2).ToString();
                 }
             }
