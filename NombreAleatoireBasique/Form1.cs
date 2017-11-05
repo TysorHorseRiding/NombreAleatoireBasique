@@ -19,20 +19,40 @@ namespace NombreAleatoireBasique
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void result()
         {
             if (int.TryParse(textBox1.Text, out int result))
             {
                 if (int.TryParse(textBox2.Text, out int result2))
                 {
-                    if(result2 <= result)
-                    {                    
-                        MessageBox.Show("Le nombre minimum doit être inférieur au nombre maximum.");
+                    if (result2 <= result)
+                    {
+                        label4.Visible = true;
                         return;
+                    }
+                    else
+                    {
+                        label4.Visible = false;
                     }
                     label3.Text = nombrealeatoire.Next(result, result2).ToString();
                 }
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            result();
+        }
+
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            result();
+        }
+
+        private void label4_SizeChanged(object sender, EventArgs e)
+        {
+            this.label4.Left = (this.ClientSize.Width - label4.Size.Width) / 2;
         }
     }
 }
