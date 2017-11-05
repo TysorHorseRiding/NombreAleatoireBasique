@@ -49,10 +49,5 @@ namespace NombreAleatoireBasique
         {
             result();
         }
-
-        private void label4_SizeChanged(object sender, EventArgs e)
-        {
-            this.label4.Left = (this.ClientSize.Width - label4.Size.Width) / 2;
-        }
     }
 }

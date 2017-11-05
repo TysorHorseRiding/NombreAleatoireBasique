@@ -94,7 +94,6 @@
             this.label4.Text = "Le nombre minimum doit être inférieur au nombre maximum.";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label4.Visible = false;
-            this.label4.SizeChanged += new System.EventHandler(this.label4_SizeChanged);
             // 
             // Form1
             // 
