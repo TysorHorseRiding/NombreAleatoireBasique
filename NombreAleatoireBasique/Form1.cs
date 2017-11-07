@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NombreAleatoireBasique
@@ -17,6 +10,14 @@ namespace NombreAleatoireBasique
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private bool checkifempty()
+        {
+            if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrWhiteSpace(textBox1.Text) || String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrWhiteSpace(textBox2.Text))
+                return true;
+            else
+                return false;
         }
 
         private void result()
@@ -48,6 +49,30 @@ namespace NombreAleatoireBasique
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             result();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (checkifempty() == true)
+                MessageBox.Show("Veuilez remplir correctement tous les champs");
+            else
+                result();
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
